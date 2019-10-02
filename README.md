@@ -1,5 +1,5 @@
 # Docker Install
-Click [here](https://reactjs.org/docs/create-a-new-react-app.html) and create your own [Docker Hub](https://hub.docker.com) account and download your machine's operating system supported docker and install globally in your local machine.
+Click [here](https://reactjs.org/docs/create-a-new-react-app.html) and create your own [Docker Hub](https://hub.docker.com) account and download your machine's operating system supported docker and install in your local machine.
 
 #####Check docker version after installation
 Open your terminal (poserShell for windows) and type
