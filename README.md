@@ -102,7 +102,33 @@ Commands: <br>
 
 Run `docker COMMAND --help` for more information on a command. 
  
+<br>
 
+
+### Some important docker common commands:
+Verify your Networks <br>
+`networetwork ls` 
+
+Stop and remove our docker container <br>
+`docker-compose down`
+
+Create our Docker image from our Dockerfile<br>
+`docker build --tag my_http`
+
+Show the running containers <br>
+`docker ps`
+
+Stopping a running container<br>
+`docker stop CONTAINER_ID`
+
+Stop all running container<br>
+`docker container stop $(docker container ls -aq)`
+
+Delete all running containers<br>
+`-docker container rm $(docker container ls -aq)`
+
+Delete docker image<br>
+`docker rmi IMAGE_ID`
 
 
 
