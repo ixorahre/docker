@@ -1,10 +1,50 @@
-version: "3"
+version: '3'
 services:
-  www:
-    build: .
+  mysql_lara:
+    build: ./mysql
+    container_name: lara_mysql
     ports:
-      - "8040:80"
+      - '5009:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
     volumes:
-      - ./src:/var/www/html/
+      - ./initdb.d:/docker-entrypoint-initdb.d
     networks:
-      - default
+      lara:
+        ipv4_address: 192.168.100.4
+  app_laravel:
+    tty: true
+    build: ./app_laravel
+    container_name: habib_laravel
+    volumes:
+      - ./test-app:/var/www/html:cached
+    ports:
+      - '5011:80'
+    networks:
+      lara:
+        ipv4_address: 192.168.100.7
+    depends_on:
+      - mysql_lara
+  lara_servphp7:
+    tty: true
+    build: ./lara_servphp7
+    container_name: lara_servphp7
+    volumes:
+      - /Users/hashimoto/git/soe_serv:/var/www/html
+      - /Users/hashimoto/git:/var/git
+    ports:
+      - '5013:80'
+    networks:
+      lara:
+        ipv4_address: 192.168.100.6
+    depends_on:
+      - mysql_lara
+
+networks:
+  lara:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 192.168.100.0/24
+#        gateway: 192.168.100.1
+
