@@ -2,4 +2,4 @@
 -by <br />
 Habibur Rahman
 <br />
-Checkout the Lesson-1 to start docker.
+Checkout to the Lesson-1 branch to start docker.
