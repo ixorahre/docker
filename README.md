@@ -1,7 +1,7 @@
 # Docker Install
 Click [here](https://reactjs.org/docs/create-a-new-react-app.html) and create your own [Docker Hub](https://hub.docker.com) account and download your machine's operating system supported docker and install in your local machine.
 
-####Check docker version after installation
+###Check docker version after installation
 Open your terminal (poserShell for windows) and type
 <br>
 `- docker -v`
@@ -9,7 +9,7 @@ Open your terminal (poserShell for windows) and type
 It will return 
 `Docker version 19.03.2, build 6a30dfc` something like this. So your docker is ready to use.
 <br>
-####For docker commands :
+###For docker commands :
 `docker help`
 <br>
 The result will be :
