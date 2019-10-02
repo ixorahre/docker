@@ -1,25 +1,37 @@
-# Create php Docker file and image build from it
+# Create docker-compose file
 
 ##### Create php Dockerfile
-
 ```
-FROM php:7.2-cli
-COPY ./src /usr/src/myapp
-WORKDIR /usr/src/myapp
-CMD [ "php", "./docker_index.php" ]
+FROM php:7.2-apache
 ```
 
-##### Create our Docker image from my php Dockerfile
+##### Create my docker-compose file
 
-`docker build -t run-php .`
+```
+version: "3"
+services:
+    www:
+        build: .
+        ports:
+            - "8080:80"
+        volumes:
+            - ./src:/var/www/html/
+        networks:
+            - default
+```
 
-##### Check that my image has been created or not
+##### Stop and remove my docker container
 
-`docker images`
+```
+docker-compose down
+```
 
-##### Run my docker image which should have copied a local file called docker_index.php
+##### Start my docker container from docker-compose file
 
-`docker run -it --rm --name run-app run-php`
+```
+docker-compose up
+```
+
 
 
 
