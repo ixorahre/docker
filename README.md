@@ -1,38 +1,30 @@
-# Create Docker file
+# Create php Docker file and image build from it
+
+##### Create php Dockerfile
+
 ```
-FROM nginx
-COPY html /usr/share/nginx/html
+FROM php:7.2-cli
+COPY ./src /usr/src/myapp
+WORKDIR /usr/src/myapp
+CMD [ "php", "./docker_index.php" ]
 ```
 
-# Create our Docker image from our Dockerfile
+##### Create our Docker image from my php Dockerfile
 
-`docker build --tag my_http_server .`
+`docker build -t run-php .`
 
-##### Check that our image has been created
-`docker images`
-
-##### Run our docker image on port 8080
-
-`docker run -d -p 8080:80 --name my_http_server`  
-
-##### Check my docker is running?
-`http://localhost:8080`
-
-##### Stop the running container
-
-`docker stop CONTAINER_ID`
-
-##### Find the running image ID
+##### Check that my image has been created or not
 
 `docker images`
 
-##### Remove the running image
+##### Run my docker image which should have copied a local file called docker_index.php
 
-`docker rmi my_http`
+`docker run -it --rm --name run-app run-php`
 
-##### If removal fails force the removal
 
-`docker rmi my_http --force`
+
+
+
 
 
 <br><br/><br/>
