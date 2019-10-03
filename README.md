@@ -20,17 +20,19 @@ services:
             - default
 ```
 
+##### Start my docker container from docker-compose file
+
+```
+docker-compose up
+```
+
 ##### Stop and remove my docker container
 
 ```
 docker-compose down
 ```
 
-##### Start my docker container from docker-compose file
 
-```
-docker-compose up
-```
 
 
 
